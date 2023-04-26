@@ -1,21 +1,34 @@
-## Simple Shell > In this project, we coded from scratch a simple Unix shell. A shell is an interactive > command-line interpreter. We created a shell that would utilize the command line > interface (CLI). It allows users to type in a defined set of > commands (e.g. "rm" to remove files, "cat" to combine word documents, etc) and have the > operating system run the appropriate function. It is slightly different from a graphical user > interface (GUI). For instance, instead of using a mouse to click to open folders and delete files, a user > can type in a command (i.e. "ls" or "rm") and have the files be displayed or > modified in a list on the command line. GUI and CLI both have the same purpose to interact > with the operating system but their input methods are different and some developers > prefer the CLI to interact with the shell because their typing is quicker than > clicking and dragging. There are a few > versions of Unix shells, from the very first (Ken Thompson's) shell that can > be activated by typing ```sh``` in the terminal to today's most popular Bash > (Bourne Again Shell). Later versions of the shell handle memory leaks better and > have more functionality. Our shell is a simple version that handles memory leaks > very well and has basic functionality. You can create/write/read/open/remove > folders, print things to the terminal, change directories, print where you are > in the system, etc.
+# Lightning Shell 
 
-Synopsis
+A simple shell
 
-This repository holds all the code necessary for our custom simple shell to run. Our shell currently handles the executions of executables found in the environmental variable PATH, with or without their full paths. Sample commands that our shell supports include ls (/bin/ls), pwd, echo, which, whereis, etc. We've also created the following builtins.
+## Synopsis
 
-Builtins
+A Unix shell is both a command interpreter and a programming language. As a
+command interpreter, the shell provides the user interface to the rich set of
+GNU utilities. The programming language features allow these utilities to be
+combined. Files containing commands can be created, and become commands
+themselves. These new commands have the same status as system commands in
+directories such as /bin, allowing users or groups to establish custom
+environments to automate their common tasks.
 
-exit exits shell (Usage: exit [status])
-env prints environmental variables (Usage: env)
-setenv creates or modifies an environmental variable (Usage: setenv name value)
-unsetenv removes an envrionmental variable (Usage: unsetenv name value)
-cd changes directories (Usage: cd [-][~][path])
+On this project, this program is a simple implementation of a shell.
 
-Functions and system calls used
+## Description
+This program runs and mimics like a simple UNIX command interpreter. 
 
-read, signal, malloc, free, getcwd, chdir, access, execve, wait, write, exit
+Rundown of the program
+- Gets user input
+- Tokenize input
+- Check builtins
+- Check Environment and use PATH
+- Use fork(), execve(), and wait()
 
-Description of what each file shows:
+## Requirements
 
-man_3_shell ------------------------ custom manpage for our simple shell
+-   Compiled on Ubuntu 20.04 LTS
+-   Your programs and functions will be compiled with gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
+-Wextra and -pedantic
+-   Follows the Betty style
+-   Prototypes of the functions are in the shell.h header file
+-   No more than 5 functions per file
